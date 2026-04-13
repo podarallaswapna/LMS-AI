@@ -1,0 +1,87 @@
+<section class="dashboard-page">
+  <div class="dashboard-hero">
+    <div>
+      <span class="eyebrow">Student Dashboard</span>
+      <h1>Live dashboard from courses and registrations</h1>
+      <p>
+        This dashboard now reads real metrics from the `courses` and
+        `course_registrations` tables.
+      </p>
+    </div>
+    <a class="btn btn-outline-light" routerLink="/sign-in">Back to Sign In</a>
+  </div>
+
+  <section class="dashboard-status" *ngIf="isLoading">
+    <h2>Loading dashboard...</h2>
+    <p>Fetching live course and registration metrics.</p>
+  </section>
+
+  <section class="dashboard-status error" *ngIf="errorMessage">
+    <h2>Dashboard unavailable</h2>
+    <p>{{ errorMessage }}</p>
+  </section>
+
+  <div class="dashboard-grid" *ngIf="dashboard">
+    <article class="dashboard-card profile-card">
+      <h2>Platform Summary</h2>
+      <p><strong>Total Courses:</strong> {{ dashboard.totalCourses }}</p>
+      <p><strong>Total Categories:</strong> {{ dashboard.totalCategories }}</p>
+      <p><strong>Total Registrations:</strong> {{ dashboard.totalRegistrations }}</p>
+      <p><strong>Top Course Interest:</strong> {{ topRegisteredCourse }}</p>
+    </article>
+
+    <article class="dashboard-card">
+      <h2>Course Categories</h2>
+      <div id="{{ courseChartId }}" style="width:100%;height:300px;"></div>
+      <div class="stats-list">
+        <div class="stat-row" *ngFor="let item of dashboard.courseBreakdown">
+          <span>{{ item.category }}</span>
+          <span class="status-pill">{{ item.totalCourses }}</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="dashboard-card">
+      <h2>Registration Breakdown</h2>
+      <div id="{{ registrationChartId }}" style="width:100%;height:300px;"></div>
+      <div class="stats-list" *ngIf="dashboard.registrationBreakdown.length; else emptyRegistrations">
+        <div class="stat-row" *ngFor="let item of dashboard.registrationBreakdown">
+          <span>{{ item.course }}</span>
+          <span class="status-pill warm">{{ item.totalRegistrations }}</span>
+        </div>
+      </div>
+      <ng-template #emptyRegistrations>
+        <p>No registrations found yet.</p>
+      </ng-template>
+    </article>
+  </div>
+
+  <section class="dashboard-card full-width" *ngIf="dashboard">
+    <h2>Recent Registrations</h2>
+    <div class="table-wrap" *ngIf="dashboard.recentRegistrations.length; else noRecentRegistrations">
+      <table class="dashboard-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Designation</th>
+            <th>Course</th>
+            <th>Location</th>
+            <th>Created</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of dashboard.recentRegistrations">
+            <td>{{ item.name }}</td>
+            <td>{{ item.designation }}</td>
+            <td>{{ item.course }}</td>
+            <td>{{ item.location }}</td>
+            <td>{{ item.createdAt | date:'medium' }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <ng-template #noRecentRegistrations>
+      <p>No registration records available yet.</p>
+    </ng-template>
+  </section>
+</section>

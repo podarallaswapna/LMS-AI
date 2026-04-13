@@ -1,0 +1,14 @@
+<section class="gallery-page">
+  <div class="section-intro">
+    <span class="eyebrow">Gallery</span>
+    <h1>Snapshots from our learning space</h1>
+    <p>A visual gallery page to complete the menu flow from the sketch.</p>
+  </div>
+
+  <div class="gallery-grid">
+    <article class="gallery-tile" *ngFor="let item of galleryItems; index as i">
+      <div class="tile-art tile-{{ (i % 6) + 1 }}"></div>
+      <h2>{{ item }}</h2>
+    </article>
+  </div>
+</section>

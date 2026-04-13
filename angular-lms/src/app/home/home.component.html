@@ -1,7 +1,56 @@
-<div class="container text-center mt-5">
-  <h1>Welcome to LMS-AI</h1>
-  <p>This is the Home page of your Angular 19 Single Page Application.</p>
-  <p class="lead">Responsive design powered by Bootstrap 5.</p>
-</div>
+<section class="hero-panel">
+  <div class="hero-copy">
+    <span class="eyebrow">AI Info 4 You</span>
+    <h1>Workflow inspired LMS interface</h1>
+    <p>
+      This home page turns your sketch into a clean Angular UI with sections for
+      courses, registration, gallery, sign-in, contact details, and dashboard preview.
+    </p>
+    <div class="hero-actions">
+      <a class="btn btn-primary btn-lg" routerLink="/registration">Start Registration</a>
+      <a class="btn btn-outline-dark btn-lg" routerLink="/sign-in">Open Sign In</a>
+    </div>
+  </div>
 
-<p>home works!</p>
+  <aside class="feature-card">
+    <h2>Home Page Features</h2>
+    <ol>
+      <li *ngFor="let feature of features">{{ feature }}</li>
+    </ol>
+  </aside>
+</section>
+
+<section class="workflow-board">
+  <div class="workflow-head">
+    <h2>Workflow Highlights</h2>
+    <p>Sections from the diagram are now organized as clear cards and page links.</p>
+  </div>
+
+  <div class="workflow-grid">
+    <article class="workflow-note" *ngFor="let item of workflowItems">
+      {{ item }}
+    </article>
+  </div>
+</section>
+
+<section class="quick-links">
+  <a class="quick-card course" routerLink="/courses">
+    <h3>All Courses</h3>
+    <p>MEAN stack, Angular UI, validation, and API-oriented programs.</p>
+  </a>
+
+  <a class="quick-card register" routerLink="/registration">
+    <h3>Registration</h3>
+    <p>Sign-up form UI based on the fields shown in your workflow image.</p>
+  </a>
+
+  <a class="quick-card gallery" routerLink="/gallery">
+    <h3>Gallery</h3>
+    <p>Visual showcase section for sessions, campus moments, and projects.</p>
+  </a>
+
+  <a class="quick-card contact" routerLink="/contact">
+    <h3>Contact Us</h3>
+    <p>Contact details, address panel, and a Google Maps handoff button.</p>
+  </a>
+</section>

@@ -1,0 +1,184 @@
+.app-shell {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  padding: 1rem 0 0;
+  background: transparent;
+}
+
+.shell-nav {
+  margin: 0 auto;
+  max-width: 1200px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 24px;
+  background: rgba(10, 37, 64, 0.78);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.12);
+}
+
+.brand-mark {
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #f8fafc;
+}
+
+.navbar-collapse {
+  display: flex;
+  flex-basis: auto;
+}
+
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  color: rgba(248, 250, 252, 0.84);
+  font-weight: 600;
+}
+
+.nav-link.active,
+.nav-link:hover {
+  color: #fef08a;
+}
+
+.nav-toggle {
+  border-color: rgba(248, 250, 252, 0.35);
+}
+
+.nav-dropdown-btn {
+  border: 0;
+  background: transparent;
+}
+
+.course-menu {
+  position: relative;
+}
+
+.course-dropdown {
+  min-width: 310px;
+  padding: 0.55rem;
+  border: 0;
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 22px 50px rgba(15, 23, 42, 0.18);
+}
+
+.submenu-group + .submenu-group {
+  margin-top: 0.35rem;
+}
+
+.submenu-header {
+  display: flex;
+  align-items: stretch;
+  gap: 0.45rem;
+}
+
+.submenu-link {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.8rem 0.95rem;
+  border-radius: 14px;
+  color: #0f172a;
+}
+
+.submenu-link small {
+  color: #64748b;
+  font-size: 0.78rem;
+}
+
+.submenu-link:hover,
+.nested-link:hover {
+  background: #eff6ff;
+}
+
+.submenu-toggle {
+  min-width: 42px;
+  border: 0;
+  border-radius: 14px;
+  background: #e2e8f0;
+  color: #0f172a;
+  font-weight: 700;
+}
+
+.nested-menu {
+  position: static;
+  float: none;
+  display: none;
+  margin-top: 0.45rem;
+  padding: 0.35rem;
+  border: 0;
+  border-radius: 14px;
+  background: #f8fafc;
+  box-shadow: none;
+}
+
+.nested-menu.show {
+  display: block;
+}
+
+.nested-link {
+  padding: 0.7rem 0.9rem;
+  border-radius: 12px;
+  color: #0f172a;
+}
+
+.page-shell {
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+}
+
+@media (min-width: 992px) {
+  .course-menu:hover .course-dropdown {
+    display: block;
+  }
+
+  .submenu-group:hover .nested-menu {
+    display: block;
+  }
+
+  .nested-menu {
+    position: absolute;
+    top: 0;
+    left: calc(100% + 0.5rem);
+    min-width: 220px;
+    background: #ffffff;
+    box-shadow: 0 22px 50px rgba(15, 23, 42, 0.18);
+  }
+
+  .submenu-group {
+    position: relative;
+  }
+
+  .submenu-toggle {
+    display: none;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    display: none;
+    width: 100%;
+    padding: 1rem 0 0;
+  }
+
+  .navbar-collapse.show {
+    display: block;
+  }
+
+  .navbar-nav {
+    gap: 0.35rem;
+  }
+
+  .nav-link,
+  .nav-dropdown-btn {
+    width: 100%;
+    justify-content: space-between;
+    padding: 0.8rem 0.25rem;
+  }
+
+  .course-dropdown {
+    position: static !important;
+    min-width: 100%;
+    margin-top: 0.45rem;
+  }
+}

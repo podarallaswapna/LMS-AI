@@ -1,0 +1,61 @@
+<section class="courses-page">
+  <div class="section-intro">
+    <span class="eyebrow">All Courses</span>
+    <h1>Responsive menu driven course catalog</h1>
+    <p>
+      Every course group below is now loaded dynamically from the database through
+      the backend API.
+    </p>
+    <div class="filter-summary" *ngIf="selectedCategory || selectedCourse">
+      <p>
+        Showing:
+        <strong>{{ selectedCategory || 'All Categories' }}</strong>
+        <span *ngIf="selectedCourse"> / <strong>{{ selectedCourse }}</strong></span>
+      </p>
+      <a class="btn btn-outline-primary btn-sm" routerLink="/courses">Show All Courses</a>
+    </div>
+  </div>
+
+  <section class="status-card" *ngIf="isLoading">
+    <h2>Loading course data...</h2>
+    <p>Fetching course categories and module details from the backend.</p>
+  </section>
+
+  <section class="status-card error" *ngIf="errorMessage">
+    <h2>Course data unavailable</h2>
+    <p>{{ errorMessage }}</p>
+  </section>
+
+  <section class="status-card" *ngIf="!isLoading && !errorMessage && filteredTracks.length === 0">
+    <h2>No matching courses found</h2>
+    <p>The selected course filter does not match any course returned by the database.</p>
+    <a class="btn btn-outline-primary btn-sm" routerLink="/courses">Show All Courses</a>
+  </section>
+
+  <section
+    class="track-section"
+    *ngFor="let track of filteredTracks"
+    [attr.id]="track.id"
+  >
+    <div class="track-header">
+      <div>
+        <span class="level-tag">{{ track.level }}</span>
+        <h2>{{ track.title }}</h2>
+      </div>
+      <p>{{ track.description }}</p>
+    </div>
+
+    <div class="module-grid">
+      <article
+        class="course-card"
+        *ngFor="let module of track.modules"
+        [attr.id]="module.id"
+      >
+        <span class="module-tag">{{ track.title }}</span>
+        <h3>{{ module.title }}</h3>
+        <p class="module-level">{{ module.level }}</p>
+        <p>{{ module.sample }}</p>
+      </article>
+    </div>
+  </section>
+</section>

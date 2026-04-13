@@ -1,3 +1,32 @@
 @import 'bootstrap/dist/css/bootstrap.min.css';
 
-/* You can add global styles to this file, and also import other style files */
+:root {
+  color-scheme: light;
+  --page-bg:
+    radial-gradient(circle at top, rgba(34, 197, 94, 0.08), transparent 22%),
+    radial-gradient(circle at right, rgba(59, 130, 246, 0.08), transparent 28%),
+    linear-gradient(180deg, #f8fafc, #eef2ff 55%, #f8fafc);
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  background: var(--page-bg);
+  color: #0f172a;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 700;
+}
+
+p {
+  line-height: 1.65;
+}

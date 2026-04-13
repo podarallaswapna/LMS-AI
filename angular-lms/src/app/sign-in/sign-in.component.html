@@ -1,0 +1,59 @@
+<section class="auth-page">
+  <div class="auth-card">
+    <div class="auth-copy">
+      <span class="eyebrow">Sign Up / Sign In</span>
+      <h1>Access the student dashboard</h1>
+      <p>
+        This page follows the workflow from your diagram and previews the sign-in
+        experience, the sign-up handoff, and the student dashboard path.
+      </p>
+      <ul class="auth-points">
+        <li>Template-driven Angular form</li>
+        <li>Validation with inline guidance</li>
+        <li>Dashboard preview navigation</li>
+      </ul>
+    </div>
+
+    <form #signInForm="ngForm" class="auth-form">
+      <label>
+        <span>User ID</span>
+        <input
+          type="text"
+          name="userId"
+          [(ngModel)]="credentials.userId"
+          #userId="ngModel"
+          required
+          placeholder="Enter your user ID"
+        />
+      </label>
+      <small class="field-error" *ngIf="userId.invalid && userId.touched">
+        User ID is required.
+      </small>
+
+      <label>
+        <span>Password</span>
+        <input
+          type="password"
+          name="password"
+          [(ngModel)]="credentials.password"
+          #password="ngModel"
+          required
+          minlength="4"
+          placeholder="Enter your password"
+        />
+      </label>
+      <small class="field-error" *ngIf="password.invalid && password.touched">
+        Password must be at least 4 characters.
+      </small>
+
+
+      <button class="btn btn-primary" type="button" (click)="onSignIn(signInForm)">Sign In</button>
+      <div class="alert alert-danger mt-2" *ngIf="errorMessage">{{ errorMessage }}</div>
+
+      <p class="auth-link">
+        New here?
+        <a routerLink="/registration">Create your registration first</a>
+      </p>
+    </form>
+  </div>
+</section>

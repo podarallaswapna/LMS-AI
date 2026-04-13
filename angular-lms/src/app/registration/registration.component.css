@@ -1,0 +1,83 @@
+.registration-shell {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.registration-intro,
+.registration-form {
+  padding: 2rem;
+  border-radius: 28px;
+  background: #fff;
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
+}
+
+.registration-intro {
+  background: linear-gradient(180deg, #f0fdf4, #ffffff);
+}
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  color: #15803d;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.registration-form {
+  display: grid;
+  gap: 1rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.registration-form label {
+  display: grid;
+  gap: 0.45rem;
+  font-weight: 600;
+}
+
+.registration-form input {
+  padding: 0.85rem 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 14px;
+}
+
+.registration-form select {
+  padding: 0.85rem 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 14px;
+  background: #fff;
+}
+
+.status-message {
+  margin: 0;
+  font-weight: 600;
+}
+
+.status-message.success {
+  color: #166534;
+}
+
+.status-message.error {
+  color: #b91c1c;
+}
+
+.form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+@media (max-width: 900px) {
+  .registration-shell,
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}

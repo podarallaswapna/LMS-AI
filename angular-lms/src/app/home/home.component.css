@@ -1,0 +1,148 @@
+.hero-panel {
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+.hero-copy,
+.feature-card,
+.workflow-board,
+.quick-card {
+  border-radius: 28px;
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.1);
+}
+
+.hero-copy {
+  padding: 2.25rem;
+  background:
+    radial-gradient(circle at top left, rgba(251, 191, 36, 0.25), transparent 32%),
+    linear-gradient(135deg, #ecfeff, #ffffff 55%, #fff7ed);
+}
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  color: #0f766e;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hero-copy h1 {
+  max-width: 11ch;
+  margin-bottom: 1rem;
+  font-size: clamp(2.4rem, 5vw, 4.5rem);
+  line-height: 0.98;
+}
+
+.hero-copy p {
+  max-width: 52ch;
+  color: #475569;
+  font-size: 1.05rem;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-top: 1.5rem;
+}
+
+.feature-card {
+  padding: 2rem;
+  background: linear-gradient(160deg, #14532d, #166534 55%, #22c55e);
+  color: #f0fdf4;
+}
+
+.feature-card ol {
+  padding-left: 1.25rem;
+  margin: 1rem 0 0;
+}
+
+.workflow-board {
+  margin-top: 1.75rem;
+  padding: 2rem;
+  background: #fff;
+}
+
+.workflow-head p {
+  color: #64748b;
+}
+
+.workflow-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.workflow-note {
+  padding: 1rem;
+  border: 1px solid #fed7aa;
+  border-radius: 18px;
+  background: #fff7ed;
+  color: #c2410c;
+  font-weight: 700;
+  text-align: center;
+}
+
+.quick-links {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.75rem;
+}
+
+.quick-card {
+  display: block;
+  min-height: 210px;
+  padding: 1.5rem;
+  color: #0f172a;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.quick-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 30px 70px rgba(15, 23, 42, 0.14);
+}
+
+.quick-card.course {
+  background: linear-gradient(180deg, #eff6ff, #ffffff);
+}
+
+.quick-card.register {
+  background: linear-gradient(180deg, #fefce8, #ffffff);
+}
+
+.quick-card.gallery {
+  background: linear-gradient(180deg, #ecfdf5, #ffffff);
+}
+
+.quick-card.contact {
+  background: linear-gradient(180deg, #fff1f2, #ffffff);
+}
+
+@media (max-width: 992px) {
+  .hero-panel,
+  .quick-links {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .workflow-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-panel,
+  .quick-links,
+  .workflow-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-copy {
+    padding: 1.5rem;
+  }
+}
